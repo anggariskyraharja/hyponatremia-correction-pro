@@ -1,17 +1,95 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <ion-title >
+      Burns Fluid Calculator
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card color="primary">
+    <ion-card-content>
+      <ion-item class="color2">
+        <ion-label>Weight:</ion-label>
+        <ion-input [(ngModel)]="weight" type="number" placeholder="enter value"></ion-input>
+        <ion-select value="kg"(ionChange)="checksatuan1($event)">
+          <ion-select-option value="kg">kg</ion-select-option>
+          <ion-select-option value="lb">lb</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-item class="color1">
+      <ion-label>Height:</ion-label>
+        <ion-input [(ngModel)]="height" type="number" placeholder="enter value"></ion-input>
+        <ion-select value="cm"(ionChange)="checksatuan2($event)">
+          <ion-select-option value="cm">cm</ion-select-option>
+          <ion-select-option value="ft">ft</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="color2"> 
+        <ion-text>Time since burn: (hours)</ion-text> 
+        <ion-label position="floating"></ion-label>
+        <ion-input [(ngModel)]="time" type="number" placeholder="between 0-23 hours"></ion-input>
+      </ion-item>
+
+      <ion-item class="color1"> 
+        <ion-text>Total fluid given: (mL)</ion-text>   
+        <ion-label position="floating"></ion-label>
+        <ion-input [(ngModel)]="fluid" type="number" placeholder="total fluid already given (mL)"></ion-input>
+      </ion-item>
+
+      <ion-item class="color2">
+        <ion-label>Child patient?</ion-label>
+        <ion-toggle [(ngModel)]="child"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color1"> 
+        <ion-text>Burn percentage (%):</ion-text>   
+        <ion-label position="floating"></ion-label>
+        <ion-input [(ngModel)]="burn" type="number" placeholder="excluding 1st degree burns"></ion-input>
+      </ion-item>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="calculate()" color="primary">Calculate<ion-icon slot="end" name="checkmark-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="clear()" fill="outline" color="danger">Clear<ion-icon slot="end" name="close-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-card color="primary" class="ion-text-center" *ngIf="note1" >
+    <ion-card-header>
+      <ion-card-title>Result</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>  
+  <ion-item class="color2">
+    <p>{{note1}}</p>
+  </ion-item>
+  <ion-item class="color1"> 
+    <p>{{note2}}</p>
+  </ion-item>
+  <ion-item class="color2">
+    <p>{{note3}}</p>
+  </ion-item>
+  <ion-item class="color1">
+    <p>{{note4}}</p>
+  </ion-item>
+  <ion-item class="color2">
+    <p>{{note5}}</p>
+  </ion-item>
+  <ion-item class="color1">
+    <p>{{note6}}</p>
+  </ion-item>
+  <ion-item class="color2">
+    <p>{{note7}}</p>
+  </ion-item>
+</ion-card-content>
+</ion-card>
+
 </ion-content>

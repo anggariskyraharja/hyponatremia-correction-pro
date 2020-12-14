@@ -1,17 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <ion-title >
+      ABSI Score Calculator
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card color="primary">
+    <ion-card-content>
+      <ion-item class="color2">
+        <ion-radio-group value="q11" name="q1" (ionChange)="checkq1($event)"> 
+            <ion-text>Gender</ion-text>
+          <ion-item class="color2">
+            <ion-text>Male</ion-text>
+            <ion-radio slot="start" value="q11"></ion-radio>
+          </ion-item>
+          <ion-item class="color2">
+            <ion-text>Female</ion-text>
+            <ion-radio slot="start" value="q12"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+      <ion-item class="color1">
+        <ion-label position="floating">Age:</ion-label>
+        <ion-input [(ngModel)]="age" type="number" placeholder="in years"></ion-input>
+      </ion-item>
+      <ion-item class="color2">
+        <ion-label>Inhalation injury</ion-label>
+        <ion-toggle [(ngModel)]="inhalation"></ion-toggle>
+      </ion-item>
+      <ion-item class="color1">
+        <ion-label>Presence of full-thickness burn</ion-label>
+        <ion-toggle [(ngModel)]="full"></ion-toggle>
+      </ion-item>
+      <ion-item class="color2"> 
+        <ion-text>Burn percentage (%):</ion-text>   
+        <ion-label position="floating"></ion-label>
+        <ion-input [(ngModel)]="burn" type="number" placeholder="in %"></ion-input>
+      </ion-item>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="calculate()" color="primary">Calculate<ion-icon slot="end" name="checkmark-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="clear()" fill="outline" color="danger">Clear<ion-icon slot="end" name="close-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-card color="primary" class="ion-text-center" *ngIf="note1" >
+    <ion-card-header>
+      <ion-card-title>Result</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>  
+  <ion-item class="color1">
+    <p>{{note1}}</p>
+  </ion-item>
+  <ion-item class="color2"> 
+    <p>{{note2}}</p>
+  </ion-item>
+  <ion-item class="color1">
+    <p>{{note3}}</p>
+  </ion-item>
+</ion-card-content>
+</ion-card>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>

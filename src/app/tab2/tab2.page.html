@@ -1,17 +1,82 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <ion-title >
+      Burns Percentages Calculator
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card color="primary">
+    <ion-card-content>
+      <ion-item class="color2">
+        <ion-label>Anterior Head</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body1"></ion-toggle>
+      </ion-item>
+      <ion-item class="color1">
+        <ion-label>Posterior Head</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body2"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color2">
+        <ion-label>Chest</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body3"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color1">
+        <ion-label>Abdomen</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body4"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color2">
+        <ion-label>Back</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body5"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color1">
+        <ion-label>Anterior right arm</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body6"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color2">
+        <ion-label>Posterior right arm</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body7"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color1">
+        <ion-label>Anterior left arm</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body8"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color2">
+        <ion-label>Posterior left arm</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body9"></ion-toggle>
+      </ion-item>  
+      <ion-item class="color1">
+        <ion-label>Anterior right leg</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body10"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color2">
+        <ion-label>Posterior right leg</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body11"></ion-toggle>
+      </ion-item>  
+      <ion-item class="color1">
+        <ion-label>Anterior left leg</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body12"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color2">
+        <ion-label>Posterior left leg</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body13"></ion-toggle>
+      </ion-item>   
+      <ion-item class="color1">
+        <ion-label>Perineum</ion-label>
+        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body14"></ion-toggle>
+      </ion-item>  
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card color="primary" class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>Result</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>  
+  <ion-item class="color2">
+    <p>The total body surface area of the burn is <b>{{bsa}}%</b> (based on Wallace Rule-of-Nines)</p>
+  </ion-item>
+</ion-card-content>
+</ion-card>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

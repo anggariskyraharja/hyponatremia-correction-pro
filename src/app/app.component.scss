@@ -1,0 +1,17 @@
+@function dpTOpt($_dp) {
+    @return (72 / 160) * $_dp + pt;
+    }
+    
+    @media only screen and (max-height: dpTOpt(720))
+    {
+    .admob-space {
+    margin-bottom: dpTOpt(50);
+    }
+    }
+    
+    @media only screen and (min-height : dpTOpt(720))
+    {
+    .admob-space {
+    margin-bottom: dpTOpt(90);
+    }
+    }
