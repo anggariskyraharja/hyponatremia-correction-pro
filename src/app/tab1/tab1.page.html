@@ -1,93 +1,75 @@
 <ion-header [translucent]="true" >
   <ion-toolbar >
     <ion-title >
-      Burns Fluid Calculator
+      Sodium Correction Rate
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card color="primary">
+  <ion-card class="color1">
     <ion-card-content>
-      <ion-item class="color2">
-        <ion-label>Weight:</ion-label>
-        <ion-input [(ngModel)]="weight" type="number" placeholder="enter value"></ion-input>
-        <ion-select value="kg"(ionChange)="checksatuan1($event)">
-          <ion-select-option value="kg">kg</ion-select-option>
-          <ion-select-option value="lb">lb</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item class="color1">
-      <ion-label>Height:</ion-label>
-        <ion-input [(ngModel)]="height" type="number" placeholder="enter value"></ion-input>
-        <ion-select value="cm"(ionChange)="checksatuan2($event)">
-          <ion-select-option value="cm">cm</ion-select-option>
-          <ion-select-option value="ft">ft</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item class="color2"> 
-        <ion-text>Time since burn: (hours)</ion-text> 
-        <ion-label position="floating"></ion-label>
-        <ion-input [(ngModel)]="time" type="number" placeholder="between 0-23 hours"></ion-input>
-      </ion-item>
-
-      <ion-item class="color1"> 
-        <ion-text>Total fluid given: (mL)</ion-text>   
-        <ion-label position="floating"></ion-label>
-        <ion-input [(ngModel)]="fluid" type="number" placeholder="total fluid already given (mL)"></ion-input>
-      </ion-item>
-
-      <ion-item class="color2">
-        <ion-label>Child patient?</ion-label>
-        <ion-toggle [(ngModel)]="child"></ion-toggle>
-      </ion-item>
-
-      <ion-item class="color1"> 
-        <ion-text>Burn percentage (%):</ion-text>   
-        <ion-label position="floating"></ion-label>
-        <ion-input [(ngModel)]="burn" type="number" placeholder="excluding 1st degree burns"></ion-input>
-      </ion-item>
-      
-    </ion-card-content>
-  </ion-card>
+  <ion-item class="color1">
+      <p>Many experts recommend that sodium correction rate not more than 8 mEq/L per 24 hours (0.33 mEq/L/hour). If a patient is symptomatic or having seizure, more rapid correction should be considered.</p>
+  </ion-item>
+</ion-card-content>
+</ion-card>
+  <ion-list>
+  <ion-item class="color2">
+    <ion-label>Gender</ion-label>
+    <ion-select value="male" (ionChange)="check1($event)">
+      <ion-select-option value="male">Male</ion-select-option>
+      <ion-select-option value="female">Female</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label>Age</ion-label>
+    <ion-select value="adult" (ionChange)="check2($event)">
+      <ion-select-option value="child">Child</ion-select-option>
+      <ion-select-option value="adult">Adult</ion-select-option>
+      <ion-select-option value="elderly">Elderly</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Weight</ion-label>
+    <ion-input type="number" [(ngModel)]= "weight" placeholder="enter value in kg"></ion-input>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Current sodium level</ion-label>
+    <ion-input type="number" [(ngModel)]= "sodium" placeholder="range 100-140 mEq/L"></ion-input>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Sodium correction rate</ion-label>
+    <ion-input type="number" [(ngModel)]= "correction" placeholder="range 0-1 mEq/L/hour"></ion-input>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Correction fluid</ion-label>
+    <ion-select value="Normal saline" (ionChange)="check3($event)">
+      <ion-select-option value="Normal saline">Normal saline</ion-select-option>
+      <ion-select-option value="3% hypertonic saline">3% hypertonic saline</ion-select-option>
+      <ion-select-option value="5% hypertonic saline">5% hypertonic saline</ion-select-option>
+      <ion-select-option value="Ringers lactate">Ringers lactate</ion-select-option>
+    </ion-select>
+  </ion-item>
+  </ion-list>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculate()" color="primary">Calculate<ion-icon slot="end" name="checkmark-circle-outline"></ion-icon></ion-button>
+        <ion-button expand="block" (click)="calculate()" class="color3">Calculate<ion-icon slot="end" name="checkmark-circle-outline"></ion-icon></ion-button>
       </ion-col>
       <ion-col>
-        <ion-button expand="block" (click)="clear()" fill="outline" color="danger">Clear<ion-icon slot="end" name="close-circle-outline"></ion-icon></ion-button>
+        <ion-button expand="block" (click)="clear()" fill="outline" class="color2">Clear<ion-icon slot="end" name="close-circle-outline"></ion-icon></ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
   
-  <ion-card color="primary" class="ion-text-center" *ngIf="note1" >
+  <ion-card class="color4" *ngIf="fluiddrate" >
     <ion-card-header>
       <ion-card-title>Result</ion-card-title>
     </ion-card-header>
     <ion-card-content>  
-  <ion-item class="color2">
-    <p>{{note1}}</p>
-  </ion-item>
-  <ion-item class="color1"> 
-    <p>{{note2}}</p>
-  </ion-item>
-  <ion-item class="color2">
-    <p>{{note3}}</p>
-  </ion-item>
-  <ion-item class="color1">
-    <p>{{note4}}</p>
-  </ion-item>
-  <ion-item class="color2">
-    <p>{{note5}}</p>
-  </ion-item>
-  <ion-item class="color1">
-    <p>{{note6}}</p>
-  </ion-item>
-  <ion-item class="color2">
-    <p>{{note7}}</p>
+  <ion-item class="color4">
+    <p>{{fluiddrate}}</p>
   </ion-item>
 </ion-card-content>
 </ion-card>

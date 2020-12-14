@@ -26,20 +26,30 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 :root {
-    --ion-color-primary: #d62828;
+    --ion-color-primary: #029676;
     --ion-background-color: #FFFFFF;
 }
 
 ion-toolbar {
-    --background:#d62828;
+    --background: #029676;
+    --border-style: solid;
+    --border-color: #016d55;
     --color: #FFFFFF;
 }
+ion-label {
+    font-size: 1.0em !important;
+}
 .color1 {
-    --background: #ffc13b;
+    --background: #8ab833;
+    --border-style: solid;
+    --border-color: #8ab833;
     --color: #000000;
+    text-align: justify;
 }
 .color2 {
-    --background: #EAe2b7;
+    --background: #E3DED1;
+    --border-style: solid;
+    --border-color: #d3cbb6;
     --color: #000000;
 }
 .color3 {
@@ -52,6 +62,6 @@ ion-toolbar {
     --background: #8ab833;
     --border-style: solid;
     --border-color: #8ab833;
-    --color: #FFFFFF;
+    --color: #000000;
     text-align: center;
 }

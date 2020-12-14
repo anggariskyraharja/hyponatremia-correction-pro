@@ -1,80 +1,66 @@
 <ion-header [translucent]="true" >
   <ion-toolbar >
     <ion-title >
-      Burns Percentages Calculator
+      Sodium Deficit
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card color="primary">
+  <ion-card class="color1">
     <ion-card-content>
-      <ion-item class="color2">
-        <ion-label>Anterior Head</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body1"></ion-toggle>
-      </ion-item>
-      <ion-item class="color1">
-        <ion-label>Posterior Head</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body2"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color2">
-        <ion-label>Chest</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body3"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color1">
-        <ion-label>Abdomen</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body4"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color2">
-        <ion-label>Back</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body5"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color1">
-        <ion-label>Anterior right arm</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body6"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color2">
-        <ion-label>Posterior right arm</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body7"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color1">
-        <ion-label>Anterior left arm</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body8"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color2">
-        <ion-label>Posterior left arm</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body9"></ion-toggle>
-      </ion-item>  
-      <ion-item class="color1">
-        <ion-label>Anterior right leg</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body10"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color2">
-        <ion-label>Posterior right leg</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body11"></ion-toggle>
-      </ion-item>  
-      <ion-item class="color1">
-        <ion-label>Anterior left leg</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body12"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color2">
-        <ion-label>Posterior left leg</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body13"></ion-toggle>
-      </ion-item>   
-      <ion-item class="color1">
-        <ion-label>Perineum</ion-label>
-        <ion-toggle (ionChange)="calculate()" [(ngModel)]="body14"></ion-toggle>
-      </ion-item>  
-    </ion-card-content>
-  </ion-card>
+  <ion-item class="color1">
+      <p>Calculate amount of required sodium replenishment for the patient with hyponatremia.</p>
+  </ion-item>
+</ion-card-content>
+</ion-card>
+  <ion-list>
+  <ion-item class="color2">
+    <ion-label>Gender</ion-label>
+    <ion-select value="male" (ionChange)="check1($event)">
+      <ion-select-option value="male">Male</ion-select-option>
+      <ion-select-option value="female">Female</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label>Age</ion-label>
+    <ion-select value="adult" (ionChange)="check2($event)">
+      <ion-select-option value="child">Child</ion-select-option>
+      <ion-select-option value="adult">Adult</ion-select-option>
+      <ion-select-option value="elderly">Elderly</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Normal weight</ion-label>
+    <ion-input type="number" [(ngModel)]= "weight" placeholder="enter value in kg"></ion-input>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Current sodium level</ion-label>
+    <ion-input type="number" [(ngModel)]= "sodium" placeholder="in mEq/L"></ion-input>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Desired sodium level</ion-label>
+    <ion-input type="number" [(ngModel)]= "correction" placeholder="in mEq/L"></ion-input>
+  </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="calculate()" class="color3">Calculate<ion-icon slot="end" name="checkmark-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="clear()" fill="outline" class="color2">Clear<ion-icon slot="end" name="close-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   
-  <ion-card color="primary" class="ion-text-center">
+  <ion-card class="color4" *ngIf="deficit" >
     <ion-card-header>
       <ion-card-title>Result</ion-card-title>
     </ion-card-header>
     <ion-card-content>  
-  <ion-item class="color2">
-    <p>The total body surface area of the burn is <b>{{bsa}}%</b> (based on Wallace Rule-of-Nines)</p>
+  <ion-item class="color4">
+    <p>{{deficit}}</p>
   </ion-item>
 </ion-card-content>
 </ion-card>
