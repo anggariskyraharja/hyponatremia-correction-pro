@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1018802279402",
+    "project_id": "hyponatremia-calculator",
+    "storage_bucket": "hyponatremia-calculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018802279402:android:f5f89aca2d917cb41e1893",
+        "android_client_info": {
+          "package_name": "com.imedicalapps.hyponatremiacalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018802279402-t5ee5o68tgepc1kn8fkn7uplqt8e0bh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-lFlV_Enuk2cpv3aHtETpOAc6tRdavqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018802279402-t5ee5o68tgepc1kn8fkn7uplqt8e0bh5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1018802279402-25q2r4d72399292ahl8ssij4ve7m2g77.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.imedicalapps.hyponatremiacalculator"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
