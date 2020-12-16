@@ -7,14 +7,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card class="color1">
-    <ion-card-content>
-  <ion-item class="color1">
-      <p>Many experts recommend that sodium correction rate not more than 8 mEq/L per 24 hours (0.33 mEq/L/hour). If a patient is symptomatic or having seizure, more rapid correction should be considered.</p>
-  </ion-item>
-</ion-card-content>
-</ion-card>
   <ion-list>
+    <ion-card class="color1">
+      <ion-card-content>
+    <ion-item class="color1">
+        <p>Many experts recommend that sodium correction rate not more than 8 mEq/L per 24 hours (0.33 mEq/L/hour).</p>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="information1()" color="primary">Acute <ion-icon slot="end" name="information-circle-outline"></ion-icon></ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="information2()" color="primary">Chronic <ion-icon slot="end" name="information-circle-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  </ion-card>
   <ion-item class="color2">
     <ion-label>Gender:</ion-label>
     <ion-select value="male" (ionChange)="check1($event)">
@@ -36,11 +46,11 @@
   </ion-item>
   <ion-item class="color2">
     <ion-label position="stacked">Current sodium level:</ion-label>
-    <ion-input type="number" [(ngModel)]= "sodium" placeholder="range 100-140 mEq/L"></ion-input>
+    <ion-input type="number" [(ngModel)]= "sodium" placeholder="range 90-135 mEq/L"></ion-input>
   </ion-item>
   <ion-item class="color2">
     <ion-label position="stacked">Sodium correction rate:</ion-label>
-    <ion-input type="number" [(ngModel)]= "correction" placeholder="range 0-1 mEq/L/hour"></ion-input>
+    <ion-input type="number" [(ngModel)]= "correction" placeholder="range 0-2 mEq/L/hour"></ion-input>
   </ion-item>
   <ion-item class="color2">
     <ion-label position="stacked">Correction fluid:</ion-label>
@@ -49,6 +59,14 @@
       <ion-select-option value="3% hypertonic saline">3% hypertonic saline</ion-select-option>
       <ion-select-option value="5% hypertonic saline">5% hypertonic saline</ion-select-option>
       <ion-select-option value="Ringers lactate">Ringers lactate</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item class="color2">
+    <ion-label position="stacked">Infusion drop factor:</ion-label>
+    <ion-select value="20" (ionChange)="check4($event)">
+      <ion-select-option value="10">10 gtts/mL</ion-select-option>
+      <ion-select-option value="15">15 gtts/mL</ion-select-option>
+      <ion-select-option value="20">20 gtts/mL</ion-select-option>
     </ion-select>
   </ion-item>
   </ion-list>
@@ -70,6 +88,7 @@
     <ion-card-content>  
   <ion-item class="color4">
     <p>{{fluiddrate}}</p>
+    <p>{{droprate}}</p>
   </ion-item>
 </ion-card-content>
 </ion-card>
