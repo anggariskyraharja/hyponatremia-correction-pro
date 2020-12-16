@@ -16,14 +16,14 @@
 </ion-card>
   <ion-list>
   <ion-item class="color2">
-    <ion-label>Gender</ion-label>
+    <ion-label>Gender:</ion-label>
     <ion-select value="male" (ionChange)="check1($event)">
       <ion-select-option value="male">Male</ion-select-option>
       <ion-select-option value="female">Female</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item class="color2">
-    <ion-label>Age</ion-label>
+    <ion-label>Age:</ion-label>
     <ion-select value="adult" (ionChange)="check2($event)">
       <ion-select-option value="child">Child</ion-select-option>
       <ion-select-option value="adult">Adult</ion-select-option>
@@ -31,15 +31,15 @@
     </ion-select>
   </ion-item>
   <ion-item class="color2">
-    <ion-label position="stacked">Normal weight</ion-label>
+    <ion-label position="stacked">Normal weight:</ion-label>
     <ion-input type="number" [(ngModel)]= "weight" placeholder="enter value in kg"></ion-input>
   </ion-item>
   <ion-item class="color2">
-    <ion-label position="stacked">Current sodium level</ion-label>
+    <ion-label position="stacked">Current sodium level:</ion-label>
     <ion-input type="number" [(ngModel)]= "sodium" placeholder="in mEq/L"></ion-input>
   </ion-item>
   <ion-item class="color2">
-    <ion-label position="stacked">Desired sodium level</ion-label>
+    <ion-label position="stacked">Desired sodium level:</ion-label>
     <ion-input type="number" [(ngModel)]= "correction" placeholder="in mEq/L"></ion-input>
   </ion-item>
   </ion-list>
