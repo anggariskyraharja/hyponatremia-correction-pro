@@ -136,7 +136,7 @@ export class Tab1Page {
       else if (this.drop == '15'){drip = rate/60*15}
       else if (this.drop == '10'){drip = rate/60*10}
       this.fluiddrate = 'For desired correction rate of: '+this.correction+' mEq/L/hour, the fluid correction rate using '+this.fluid+' is '+this.roundoff(rate)+' mL/hour. This will correct sodium by '+this.roundoff(day)+' mEq/L per day.'
-      this.droprate = 'For IV infusion with drop factors of '+this.drop+' gtts/mL, the infusion should be set to '+drip+' gtts/minute or drops/minute.'
+      this.droprate = 'For IV infusion with drop factors of '+this.drop+' gtts/mL, the infusion should be set to '+this.roundoff(drip)+' gtts/minute or drops/minute.'
     }
   }   
 }
